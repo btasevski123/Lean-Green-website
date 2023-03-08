@@ -17,7 +17,7 @@ Simply download the code from GitHub and extract the files to your local machine
 
 ## Usage
 
-To use the Lean$Green, simply open the index.html file in your web browser.
+To use the Lean&Green, simply open the index.html file in your web browser.
 You can then navigate through the different pages of the website using the navigation menu.
 
 
