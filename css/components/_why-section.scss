@@ -1,0 +1,104 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+@use "sass:math";
+
+.why-section {
+  @extend %section;
+  background-color: var.$background-color-primary;
+
+  .why-section-wrapper {
+    @extend %wrap-80;
+  }
+
+  .why-section__header {
+    text-align: center;
+
+    h2 {
+      font-size: var.$font-size-base * 2.5;
+    }
+
+    p {
+      font-weight: bold;
+    }
+  }
+
+  .why-section__flexbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: flex-start;
+
+    @include mix.laptop-m-styles {
+      flex-direction: column;
+    }
+  }
+
+  .why-section__flexbox--center {
+    text-align: center;
+
+    @include mix.tablet-styles {
+      img {
+        width: 180px;
+      }
+    }
+  }
+  .why-section__flexbox--left {
+    text-align: right;
+
+    li {
+      justify-content: flex-end;
+      &:not(:last-child) {
+        margin-bottom: math.div(var.$gutter-base, 1.5);
+      }
+    }
+    img {
+      margin-left: math.div(var.$gutter-base, 2.6);
+    }
+  }
+
+  .why-section__flexbox--rignt {
+    li {
+      justify-content: flex-start;
+
+      &:not(:last-child) {
+        margin-bottom: math.div(var.$gutter-base, 2.2);
+      }
+    }
+
+    img {
+      margin-right: math.div(var.$gutter-base, 2.6);
+    }
+  }
+
+  .why-section__flexbox--left,
+  .why-section__flexbox--center,
+  .why-section__flexbox--rignt {
+    flex: 0 1 33.333%;
+  }
+
+  .why-section__flexbox--left,
+  .why-section__flexbox--rignt {
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin-bottom: 0;
+
+      li {
+        font-size: var.$font-size-small;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+
+        p {
+          margin-bottom: 0;
+          line-height: none;
+        }
+
+        img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+}

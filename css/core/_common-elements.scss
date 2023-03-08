@@ -1,0 +1,57 @@
+@use "../abstracts/variables" as var;
+
+html {
+  font-size: var.$font-size-base;
+}
+
+body {
+  font-family: var.$font-family-base;
+  font-weight: var.$font-weight-normal;
+  line-height: var.$line-height-small;
+  color: var.$text-color-base;
+}
+
+h1 {
+  font-size: var.$heading-size-base;
+}
+
+h2 {
+  font-size: var.$heading-size-small;
+}
+
+h3 {
+  font-size: var.$font-size-medium;
+}
+
+.green {
+  background-color: rgba(230, 236, 224, 0.5);
+}
+.bg-green {
+  background-color: var.$color-green;
+}
+.bg-blade {
+  background-color: var.$color-belge;
+}
+
+.text-white {
+  color: var.$background-color-base;
+}
+.text-green {
+  color: var.$color-green;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.underline-red {
+  text-decoration: underline dotted red;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+
+
+

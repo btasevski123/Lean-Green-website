@@ -1,0 +1,190 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+@use "sass:math";
+
+.rediscover {
+  .rediscover__header {
+    background-color: var.$color-green;
+    padding-top: var.$gutter-base;
+    color: var.$background-color-base;
+    text-align: center;
+    font-size: var.$font-size-base;
+
+    h2 {
+      font-weight: var.$font-weight-normal;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    i {
+      background-color: var.$background-color-base;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      color: var.$color-green;
+      font-size: var.$font-size-base * 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin-bottom: -1.5rem;
+      z-index: 11111;
+    }
+  }
+
+  .wrapper {
+    @extend %section;
+  }
+
+  .rediscover__body-inner {
+    @extend %wrap-80;
+    text-align: center;
+  }
+
+  .rediscover__body-cards {
+    @extend %wrap-60;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    @include mix.laptop-m-styles {
+      flex-direction: column;
+    }
+  }
+
+  .rediscover__body-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    margin: 0 auto;
+    padding-top: var.$gutter-base;
+
+    @include mix.laptop-m-styles {
+      width: 100%;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  .rediscover__body-comments {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    @include mix.laptop-s-styles {
+      grid-template-columns: 1fr;
+    }
+
+    .comment {
+      p {
+        font-style: italic;
+      }
+    }
+
+    .rediscover__body-comments--comment {
+      background-color: var.$background-color-primary;
+      padding: var.$gutter-base;
+      margin-top: var.$gutter-base;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-radius: 7px;
+
+      .review {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: var.$gutter-base;
+
+        p {
+          margin-bottom: 0;
+        }
+
+        i {
+          color: var.$color-wellow;
+        }
+      }
+    }
+  }
+
+  .rediscover__body-supply {
+    @extend %section;
+    line-height: var.$line-height-base;
+    text-align: left;
+    padding: var.$gutter-base;
+  }
+
+  .rediscover__body-moneyback {
+    background-color: var.$color-green;
+    color: var.$background-color-base;
+    font-size: var.$font-size-small;
+    text-align: left;
+    padding: var.$gutter-base;
+    border-radius: 5px;
+    position: relative;
+
+    @include mix.mobile-m-styles {
+      padding: 0;
+    }
+
+    .symbol-belge {
+      position: absolute;
+      width: 50%;
+      height: 60%;
+      bottom: 0;
+      right: 0;
+      opacity: 0.1;
+
+      @include mix.laptop-m-styles {
+        display: none;
+      }
+    }
+
+    .rediscover__body-flexbox {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+
+      @include mix.laptop-m-styles {
+        flex-direction: column;
+      }
+
+      .rediscover__body-box {
+        flex: 0 1 50%;
+        line-height: var.$line-height-base;
+
+        &:not(:last-child) {
+          margin-right: var.$gutter-base * 4;
+        }
+
+        @include mix.laptop-m-styles {
+          margin: 0 auto;
+        }
+      }
+      .card__body-img {
+        display: inline-block;
+        position: relative;
+
+        @include mix.tablet-styles {
+          width: 180px;
+        }
+      }
+
+      .badge100 {
+        position: absolute;
+        top: 0;
+        right: -40px;
+        width: 120px;
+        height: 120px;
+      }
+    }
+  }
+}

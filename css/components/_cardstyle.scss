@@ -1,0 +1,120 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+@use "sass:math";
+
+.card-belge,
+.card-green {
+  flex: 0 1 50%;
+  border: 2px solid var.$background-color-primary;
+
+  &:not(:last-child) {
+    margin-right: var.$gutter-base;
+  }
+
+  @include mix.laptop-m-styles {
+    &:not(:last-child) {
+      margin-bottom: var.$gutter-base;
+    }
+    &:not(:last-child) {
+      margin-right: 0;
+    }
+  }
+
+  .card-belge__header,
+  .card-green__header {
+    padding: math.div(var.$gutter-base, 3);
+
+    h3 {
+      margin-bottom: 0;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }
+  .card-belge__body,
+  .card-green__body {
+    padding: var.$gutter-base;
+
+    .card-belge__body-img,
+    .card-green__body-img {
+      position: relative;
+      display: inline-block;
+    }
+
+    .badge {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      width: 50px;
+      height: 50px;
+    }
+
+    p {
+      font-weight: var.$font-weight-bold;
+
+      span {
+        color: red;
+      }
+    }
+
+    .saving {
+      font-size: var.$font-size-small;
+      font-weight: var.$font-weight-medium;
+    }
+
+    h4 {
+      font-size: var.$font-size-base * 1.5;
+      color: var.$color-green;
+    }
+
+    button {
+      width: 90%;
+      padding: math.div(var.$gutter-base, 4) var.$gutter-base * 2;
+      background-color: var.$color-wellow;
+      border: none;
+      border-radius: 5px;
+      font-weight: var.$font-weight-bold;
+      white-space: nowrap;
+      transition: 0.3s ease-in-out;
+      cursor: pointer;
+      text-align: center;
+
+      @include mix.tablet-styles {
+        white-space: inherit;
+      }
+
+      @include mix.mobile-l-styles {
+        padding: math.div(var.$gutter-base, 4) 0;
+      }
+
+      &:hover {
+        box-shadow: 5px 11px 24px -4px rgba(0, 0, 0, 0.3);
+      }
+
+      span {
+        font-weight: var.$font-weight-medium;
+      }
+    }
+
+    .regular-price {
+      font-weight: var.$font-weight-normal;
+      font-size: var.$font-size-small;
+      margin-top: math.div(var.$gutter-base, 3);
+
+      span {
+        text-decoration: line-through;
+      }
+    }
+  }
+
+  .card-belge__footer,
+  .card-green__footer {
+    padding-bottom: var.$gutter-base;
+    .card-belge__footer-flex,
+    .card-green__footer-flex {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: math.div(var.$gutter-base, 2);
+    }
+  }
+}

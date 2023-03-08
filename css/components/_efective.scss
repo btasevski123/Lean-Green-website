@@ -1,0 +1,97 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+@use "sass:math";
+
+.safe-and-efective {
+  @extend %section;
+  background-color: rgb(215, 240, 215);
+
+  .safe-and-efective__wrapper {
+    @extend %wrap-60;
+
+    h2 {
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }
+
+  .safe-and-efective__wrapper-flexbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+
+    @include mix.laptop-m-styles {
+      flex-direction: column;
+    }
+
+    .safe-and-efective__wrapper-flexbox--box {
+      flex: 0 1 48%;
+      background-color: #fff;
+      margin-bottom: var.$gutter-base;
+      text-align: center;
+      padding: var.$gutter-base;
+      border-radius: 10px;
+      box-shadow: 5px 11px 24px -4px rgba(0, 0, 0, 0.3);
+
+      img {
+        width: 50px;
+        height: 50px;
+        margin-bottom: math.div(var.$gutter-base, 2);
+      }
+
+      h4 {
+        text-transform: uppercase;
+        color: var.$color-green;
+      }
+
+      p {
+        margin-bottom: 0;
+        font-size: var.$font-size-small;
+      }
+    }
+  }
+
+  .safe-and-efective__wrapper-button {
+    text-align: center;
+    button {
+      width: 50%;
+      padding: math.div(var.$gutter-base, 2) var.$gutter-base * 2;
+      background-color: var.$color-wellow;
+      border: none;
+      border-radius: 5px;
+      font-weight: var.$font-weight-bold;
+      white-space: nowrap;
+      transition: 0.3s ease-in-out;
+      cursor: pointer;
+
+      @include mix.mobile-l-styles {
+        padding: math.div(var.$gutter-base, 2) 0;
+      }
+
+      &:hover {
+        box-shadow: 5px 11px 24px -4px rgba(0, 0, 0, 0.3);
+        scale: 1.02;
+      }
+    }
+  }
+
+  .safe-and-efective__wrapper-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    padding-top: var.$gutter-base;
+
+    @include mix.laptop-m-styles {
+      width: 100%;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+}

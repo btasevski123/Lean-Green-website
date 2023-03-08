@@ -1,0 +1,64 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+@use "sass:math";
+
+.ingredients {
+  @extend %section, %wrap-80;
+
+  .ingredients__header {
+    h2 {
+      font-size: var.$font-size-base * 2.5;
+      text-align: center;
+
+      @include mix.mobile-l-styles {
+        font-size: var.$font-size-base * 1.6;
+      }
+    }
+
+    p {
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+
+  .ingredients__inner {
+    .ingredients__inner-card {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: var.$gutter-base;
+      background-color: var.$background-color-primary;
+      border-radius: 10px;
+
+      &:not(:last-child) {
+        margin-bottom: var.$gutter-base;
+      }
+
+      @include mix.laptop-s-styles {
+        flex-direction: column;
+      }
+    }
+
+    .item {
+      flex: 0 1 50%;
+
+      h4 {
+        text-transform: capitalize;
+      }
+
+      &:not(:last-child) {
+        margin-right: var.$gutter-base;
+      }
+
+      ul {
+        font-weight: bold;
+
+        li {
+          &:not(:last-child) {
+            margin-bottom: math.div(var.$gutter-base, 2);
+          }
+        }
+      }
+    }
+  }
+}

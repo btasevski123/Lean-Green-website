@@ -1,0 +1,150 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+@use "sass:math";
+
+.expirience {
+  background-color: var.$background-color-primary;
+
+  .expirience__header {
+    background-color: var.$color-green;
+    padding-top: var.$gutter-base;
+    color: var.$background-color-base;
+    text-align: center;
+
+    h3 {
+      margin-bottom: 0;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    i {
+      background-color: var.$background-color-base;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      color: var.$color-green;
+      font-size: var.$font-size-base * 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin-bottom: -1.5rem;
+      z-index: 11111;
+    }
+  }
+
+  .expirience__body-inner {
+    @extend %section, %wrap-80;
+  }
+
+  .expirience__body-cards {
+    @extend %section;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+
+    @include mix.laptop-s-styles {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .card__body {
+      img {
+        border-radius: 8px;
+        width: 100%;
+      }
+
+      h3 {
+        color: var.$color-green;
+        font-size: var.$font-family-base;
+        text-transform: uppercase;
+        text-align: center;
+        margin-top: math.div(var.$gutter-base, 2);
+      }
+
+      span {
+        color: var.$color-red;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .expirience__body-button {
+    text-align: center;
+    button {
+      width: 50%;
+      padding: math.div(var.$gutter-base, 2) var.$gutter-base * 2;
+      background-color: var.$color-wellow;
+      border: none;
+      border-radius: 5px;
+      font-weight: var.$font-weight-bold;
+      white-space: nowrap;
+      transition: 0.3s ease-in-out;
+      cursor: pointer;
+
+      @include mix.mobile-l-styles {
+        padding: math.div(var.$gutter-base, 2) 0;
+      }
+
+      &:hover {
+        box-shadow: 5px 11px 24px -4px rgba(0, 0, 0, 0.3);
+        scale: 1.02;
+      }
+    }
+  }
+
+  .expirience__body-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var.$gutter-base;
+
+    P {
+      margin-bottom: 0;
+      margin-left: 1rem;
+    }
+  }
+
+  .expirience__body-comments {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    @include mix.laptop-s-styles {
+      grid-template-columns: 1fr;
+    }
+
+    .comment {
+      p {
+        font-style: italic;
+      }
+    }
+
+    .expirience__body-comments--comment {
+      background-color: var.$background-color-base;
+      padding: var.$gutter-base;
+      border-radius: 7px;
+
+      .review {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: var.$gutter-base;
+
+        p {
+          margin-bottom: 0;
+        }
+
+        i {
+          color: var.$color-wellow;
+        }
+      }
+    }
+  }
+}
