@@ -1,4 +1,4 @@
-# Lean$Green Website
+# Lean&Green Website
 
 This website built with HTML, SCSS  allows users to view a specific and modern design including interaction.
 
